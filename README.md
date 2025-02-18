@@ -63,6 +63,7 @@ This project is structured as follows:
 - **Data Preprocessing**: The raw dataset was cleaned by removing unnecessary columns, and converting categorical data into numerical features.
 - **Feature Engineering**: Additional time-related features such as year, month, day, and is_weekend were created to capture seasonal and weekly patterns that may influence sales.
 - **Modeling**: Multiple regression models were tested and evaluated to predict sales. This included:
+  - KNN Regressor
   - Linear Regression
   - Random Forest Regressor
   - AdaBoost Regressor
@@ -100,12 +101,13 @@ The performance of different models was compared to find the one with the best p
 
 | Regressor             | Train Accuracy | Test Accuracy | Accuracy Difference |
 |-----------------------|----------------|---------------|---------------------|
-| Linear Regression     | 0.8481         | 0.8481        | 0.0000              |
-| Random Forest         | 0.8175         | 0.8151        | 0.0023              |
+| KNN                   | 0.8697         | 0.7975        |  0.0722             |
+| Linear Regression     | 0.8481         | 0.8481        |  0.0000             |
+| Random Forest         | 0.8175         | 0.8151        |  0.0023             |
 | AdaBoost              | 0.7913         | 0.7932        | -0.0019             |
-| Gradient Boosting     | 0.8949         | 0.8935        | 0.0014              |
+| Gradient Boosting     | 0.8949         | 0.8935        |  0.0014             |
 | XGBoost               | 0.9495         | 0.9654        | -0.0159             |
-| LightGBM              | 0.9116         | 0.9101        | 0.0015              |
+| LightGBM              | 0.9116         | 0.9101        |  0.0015             |
 
 The **XGBoost Regressor** showed the best results, with the highest test accuracy.
 
@@ -133,7 +135,7 @@ Here are some of the key visualizations that helped understand the dataset and m
 
 3. **Model Performance Chart**: A bar chart showing the accuracy of each regression model.
 
-![Regressors Comparison](https://github.com/user-attachments/assets/beca0ba5-3962-4d40-b0e6-d1713e8961d5)
+![Regressors Comparison](https://github.com/user-attachments/assets/5e01bc4f-e940-4a38-b394-102291fb9312)
 
 4. **Best Model (XGB) Feature Importance**.
 
@@ -145,10 +147,12 @@ Here are some of the key visualizations that helped understand the dataset and m
 
 - **Best Model**: XGBoost performed the best out of all tested models. By tuning hyperparameters such as `n_estimators`, `max_depth`, and `learning_rate`, XGBoost was able to achieve the best performance in predicting sales.
 
-  - Test MAE 554.4303498621464
-  - Test RMSE 875.9190485201827
-  - Test R2 score 0.9482756853103638
-  - Train R2 score 0.967122495174408
+| Metric         | Value               |
+|---------------|---------------------|
+| Test MAE      | 565.44              |
+| Test RMSE     | 881.78              |
+| Test R² Score | 0.9483              |
+| Train R² Score | 0.9689               |
 
 ---
 
